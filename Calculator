@@ -1,0 +1,51 @@
+from tkinter import *
+
+def g(n):
+    t=r.get()
+    if t=='0':
+        r.set('')
+        x=r.get()
+        r.set(x+n)
+    else :
+        x=r.get()
+        r.set(x+n)
+    
+def h():
+    global x
+    x=r.get()
+    y=eval(x)
+    r.set(y)
+    
+def k():
+    r.set('0')
+    
+Cal=Tk()
+
+Cal.title('Calculatrice')
+Cal.minsize(425,550)
+Cal.maxsize(425,550)
+Cal.config(bg='#bbb')
+
+r=StringVar()
+
+L=Label(Cal,textvariable=r,bg='#fff',fg='#000',width=30,height=3,font=('arial',15))
+L.place(x=40,y=40)
+
+B1=Button(Cal,text='1',fg='orange',width=5,height=2,font=20,command=lambda:g('1')).place(x=40,y=350)
+B2=Button(Cal,text='2',fg='orange',width=5,height=2,font=20,command=lambda:g('2')).place(x=120,y=350)
+B3=Button(Cal,text='3',fg='orange',width=5,height=2,font=20,command=lambda:g('3')).place(x=200,y=350)
+
+B4=Button(Cal,text='4',fg='orange',width=5,height=2,font=20,command=lambda:g('4')).place(x=40,y=250)
+B5=Button(Cal,text='5',fg='orange',width=5,height=2,font=20,command=lambda:g('5')).place(x=120,y=250)
+B6=Button(Cal,text='6',fg='orange',width=5,height=2,font=20,command=lambda:g('6')).place(x=200,y=250)
+
+B7=Button(Cal,text='7',fg='orange',width=5,height=2,font=20,command=lambda:g('7')).place(x=40,y=150)
+B8=Button(Cal,text='8',fg='orange',width=5,height=2,font=20,command=lambda:g('8')).place(x=120,y=150)
+B9=Button(Cal,text='9',fg='orange',width=5,height=2,font=20,command=lambda:g('9')).place(x=200,y=150)
+
+Badd=Button(Cal,text='+',fg='orange',width=5,height=2,font=20,command=lambda:g('+')).place(x=280,y=150)
+Bm=Button(Cal,text='x',fg='orange',width=5,height=2,font=20,command=lambda:g('*')).place(x=280,y=250)
+Bc=Button(Cal,text='C',fg='orange',width=5,height=2,font=20,command=k).place(x=280,y=450)
+Beg=Button(Cal,text='=',fg='orange',width=5,height=2,font=20,command=h).place(x=280,y=350)
+
+Cal.mainloop()
