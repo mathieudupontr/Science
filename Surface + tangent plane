@@ -1,0 +1,18 @@
+from matplotlib.pylab import *
+from numpy import *
+
+fig=figure()
+a=fig.add_subplot(projection='3d')
+
+x=[]
+y=[]
+for i in range(-100,100):
+    x.append(i/10)
+    y.append(i/10)
+
+X,Y=meshgrid(x,y)
+Z=X**2+Y**2
+W=4*X+6*Y-13
+a.plot_surface(X,Y,Z)
+a.plot_surface(X,Y,W)
+show()
