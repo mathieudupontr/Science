@@ -1,0 +1,40 @@
+from tkinter import *
+from math import *
+
+def g():
+    X=int(x.get())
+    Y=int(y.get())
+    r=sqrt(X**2+Y**2)
+    t=atan(Y/X)
+    N=int(n.get())
+    for k in range(N):
+        Re=r**(1/N)*cos((t+2*pi*k)/N)
+        Im=r**(1/N)*sin((t+2*pi*k)/N)
+        u=w.get()
+        w.set(u + '\n ' + 'z'+str(k)+' = '+ str(Re)+' + i '+str(Im))
+
+f=Tk()
+
+f.title('racine n-ièmes')
+f.minsize(500,500)
+f.maxsize(500,500)
+
+x=StringVar()
+y=StringVar()
+n=StringVar()
+w=StringVar()
+
+L1=Label(f,text='z = ').place(x=30,y=30)
+Er=Entry(f,textvariable=x,width=5).place(x=60,y=30)
+
+L2=Label(f,text='+ i ').place(x=120,y=30)
+Ei=Entry(f,textvariable=y,width=5).place(x=150,y=30)
+
+L3=Label(f,text='n = ').place(x=30,y=80)
+En=Entry(f,textvariable=n,width=5).place(x=60,y=80)
+
+B=Button(f,text='Calculer les racines nièmes',command=g).place(x=30,y=130)
+
+L=Label(f,textvariable=w,bg='#fff').place(x=30,y=180)
+
+f.mainloop()
